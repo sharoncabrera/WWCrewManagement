@@ -1,0 +1,192 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="detailedInfoVM"
+            type="com.example.wwcrewmanagement.detailedInfoWorker.DetailedInfoViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="@drawable/listgrad"
+                android:orientation="vertical"
+                android:paddingTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/worker_image"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:animateLayoutChanges="true"
+                    android:elevation="10dp"
+                    android:src="@drawable/ic_launcher_foreground"
+                    android:transitionName="@string/transition_image" />
+
+                <TextView
+                    android:id="@+id/name_text_view"
+                    style="@style/HeaderInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/profession_text_view"
+                    style="@style/CardView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/TitleInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/account_info" />
+
+            <com.example.wwcrewmanagement.components.ImageTextView
+                android:id="@+id/fullname_tv"
+                style="@style/SubtitleInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="wrap_content"
+                android:layout_height="0.5dp"
+                android:layout_margin="15dp" />
+
+
+            <com.example.wwcrewmanagement.components.ImageTextView
+                android:id="@+id/age_tv"
+                style="@style/SubtitleInfo"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="wrap_content"
+                android:layout_height="0.5dp"
+                android:layout_margin="15dp" />
+
+            <com.example.wwcrewmanagement.components.ImageTextView
+                android:id="@+id/gender_text_view"
+                style="@style/SubtitleInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="wrap_content"
+                android:layout_height="0.5dp"
+                android:layout_margin="15dp" />
+
+
+            <com.example.wwcrewmanagement.components.ImageTextView
+                android:id="@+id/height_text_view"
+                style="@style/SubtitleInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="wrap_content"
+                android:layout_height="0.5dp"
+                android:layout_margin="15dp" />
+
+
+            <com.example.wwcrewmanagement.components.ImageTextView
+                android:id="@+id/country_text_view"
+                style="@style/SubtitleInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="wrap_content"
+                android:layout_height="0.5dp"
+                android:layout_margin="15dp" />
+
+            <com.example.wwcrewmanagement.components.ImageTextView
+                android:id="@+id/email_text_view"
+                style="@style/SubtitleInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="wrap_content"
+                android:layout_height="0.5dp"
+                android:layout_margin="15dp" />
+
+            <TextView
+                style="@style/TitleInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/personal_interests" />
+
+            <com.example.wwcrewmanagement.components.ImageTextView
+                android:id="@+id/color_tv"
+                style="@style/SubtitleInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="wrap_content"
+                android:layout_height="0.5dp"
+                android:layout_margin="15dp" />
+
+
+            <com.example.wwcrewmanagement.components.ImageTextView
+                android:id="@+id/food_tv"
+                style="@style/SubtitleInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="wrap_content"
+                android:layout_height="0.5dp"
+                android:layout_margin="15dp" />
+
+            <com.example.wwcrewmanagement.components.ExpandableTextView
+                android:id="@+id/song_tv"
+                style="@style/SubtitleInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="wrap_content"
+                android:layout_height="0.5dp"
+                android:layout_margin="15dp" />
+
+
+            <com.example.wwcrewmanagement.components.ExpandableTextView
+                android:id="@+id/random_tv"
+                style="@style/SubtitleInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp" />
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+</layout>

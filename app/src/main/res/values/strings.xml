@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">WWCrewManagement</string>
+    <string name="read_more">Read more...</string>
+    <string name="account_info">Account Info</string>
+    <string name="personal_interests">Personal interests</string>
+    <string name="transition_image">image_transition</string>
+    <string name="filter">Filter</string>
+    <string name="menu">menu</string>
+    <string name="f">F</string>
+    <string name="m">M</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
+    <string name="other">Other</string>
+</resources>

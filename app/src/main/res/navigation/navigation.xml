@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/workerListFragment">
+
+    <fragment
+        android:id="@+id/workerListFragment"
+        android:name="com.example.wwcrewmanagement.workerList.WorkerListFragment"
+        tools:layout="@layout/worker_list_fragment">
+        <action
+            android:id="@+id/action_workerListFragment_to_workerDetailsFragment"
+            app:destination="@id/workerDetailsFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/workerDetailsFragment"
+        android:name="com.example.wwcrewmanagement.detailedInfoWorker.DetailedInfoWorkerFragment"
+        tools:layout="@layout/detailed_info_worker_fragment">
+
+        <argument
+            android:name="worker"
+            app:argType="com.example.wwcrewmanagement.model.Worker" />
+
+    </fragment>
+
+</navigation>
