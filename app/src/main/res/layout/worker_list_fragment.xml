@@ -55,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_background"
-                android:text="@string/other" />
+                android:text="@string/all" />
 
         </LinearLayout>
 

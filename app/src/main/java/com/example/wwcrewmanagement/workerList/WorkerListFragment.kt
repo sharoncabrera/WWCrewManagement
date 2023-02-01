@@ -133,11 +133,13 @@ class WorkerListFragment : Fragment() {
 
         binding.otherTv.setOnClickListener {
             viewModel.setCurrentGender("")
+            viewModel.setCurrentProfession("")
             viewModel.filterWorkersBy()
 
             binding.otherTv.isEnabled = false
             binding.maleTv.isEnabled = true
             binding.femaleTv.isEnabled = true
+
 
         }
 
