@@ -7,6 +7,7 @@ import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -15,19 +16,25 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.wwcrewmanagement.R
 import com.example.wwcrewmanagement.databinding.WorkerListFragmentBinding
 import com.example.wwcrewmanagement.model.Worker
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class WorkerListFragment : Fragment() {
 
     private lateinit var binding: WorkerListFragmentBinding
-    private lateinit var viewModel: WorkerViewModel
+   // private lateinit var viewModel: WorkerListViewModel
+     private val viewModel: WorkerListViewModel by viewModels()
+
     private lateinit var adapter: WorkerAdapter
     private lateinit var professionAdapter: ProfessionAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel = ViewModelProvider(this).get(WorkerViewModel::class.java)
+      //  viewModel = ViewModelProvider(this).get(WorkerListViewModel::class.java)
+
+
         viewModel.isLoading.observe(this) { isLoading ->
             binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
         }
@@ -102,7 +109,7 @@ class WorkerListFragment : Fragment() {
 
     private fun navigateToDetail(worker: Worker) {
         val action =
-            WorkerListFragmentDirections.actionWorkerListFragmentToWorkerDetailsFragment(worker)
+            WorkerListFragmentDirections.actionWorkerListFragmentToWorkerDetailsFragment(worker.id)
         findNavController().navigate(action)
     }
 

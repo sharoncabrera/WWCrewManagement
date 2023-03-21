@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class WorkerViewModel @Inject constructor(
+class WorkerListViewModel @Inject constructor(
     private val getWorkersUseCase: GetWorkersUseCase
 ) : ViewModel() {
 
@@ -36,6 +36,10 @@ class WorkerViewModel @Inject constructor(
 
     var currentFilterOption = Filter.NONE
 
+    init {
+        fetchData()
+    }
+
     fun setCurrentGender(gender: String) {
         _currentGender.value = gender
     }
@@ -44,7 +48,7 @@ class WorkerViewModel @Inject constructor(
         _currentProfession.value = profession
     }
 
-    fun fetchData() {
+    private fun fetchData() {
         isLoading.value = true
         viewModelScope.launch {
             val currentWorkers = _workers.value
@@ -73,11 +77,11 @@ class WorkerViewModel @Inject constructor(
         }
     }
 
-    fun isFilteringByProfession(): Boolean {
+    private fun isFilteringByProfession(): Boolean {
         return _currentProfession.value?.isNotBlank() == true
     }
 
-    fun isFilteringByGender(): Boolean {
+    private fun isFilteringByGender(): Boolean {
         return _currentGender.value?.isNotBlank() == true
     }
 
@@ -93,10 +97,6 @@ class WorkerViewModel @Inject constructor(
 
     fun extractProfessions(workers: List<Worker>) {
         _professions.value = workers.map { it.profession }.distinct()
-    }
-
-    init {
-        fetchData()
     }
 
     fun loadNextEvents() {

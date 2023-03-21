@@ -1,8 +1,9 @@
 package com.example.wwcrewmanagement.di
 
+import com.example.wwcrewmanagement.data.network.ApiClient
 import com.example.wwcrewmanagement.data.repository.WorkerRepositoryImpl
 import com.example.wwcrewmanagement.domain.repository.WorkerRepository
-import com.example.wwcrewmanagement.data.network.ApiClient
+import com.example.wwcrewmanagement.domain.use_case.GetWorkersUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,5 +22,11 @@ object AppModule {
     @Provides
     fun provideWorkerRepository(api: ApiClient): WorkerRepository {
         return WorkerRepositoryImpl(api = api)
+    }
+
+    @Provides
+    @Singleton
+    fun provideGetWorkersUseCase(workerRepository: WorkerRepository): GetWorkersUseCase {
+        return GetWorkersUseCase(workerRepository)
     }
 }

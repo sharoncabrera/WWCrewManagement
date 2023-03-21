@@ -24,7 +24,8 @@ class DetailedInfoWorkerFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        worker = args.worker
+        val id = args.workerId
+        worker = Worker(id = id) //TODO: implementar Room o cache
         viewModel = ViewModelProvider(this)[DetailedInfoViewModel::class.java]
     }
 
@@ -71,7 +72,7 @@ class DetailedInfoWorkerFragment : Fragment() {
             ContextCompat.getDrawable(it, R.drawable.ic_song)?.let { binding.songTv.setImage(it) }
         }
 
-        // binding.nameTextView.text = worker.name
+        binding.nameTextView.text = worker.name
         binding.professionTextView.text = worker.profession
         binding.fullnameTv.setText("${worker.name} ${worker.surname}")
         binding.ageTv.setText(worker.age.toString())

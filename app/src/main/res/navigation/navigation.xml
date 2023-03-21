@@ -26,8 +26,8 @@
         tools:layout="@layout/detailed_info_worker_fragment">
 
         <argument
-            android:name="worker"
-            app:argType="com.example.wwcrewmanagement.model.Worker" />
+            android:name="workerId"
+            app:argType="integer" />
 
     </fragment>
 
