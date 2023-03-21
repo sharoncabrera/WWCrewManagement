@@ -1,15 +1,20 @@
-package com.example.wwcrewmanagement.workerList
+package com.example.wwcrewmanagement.presentation.workerList
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.wwcrewmanagement.domain.use_case.GetWorkersUseCase
 import com.example.wwcrewmanagement.model.Filter
 import com.example.wwcrewmanagement.model.Worker
-import com.example.wwcrewmanagement.network.ApiClient
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class WorkerViewModel : ViewModel() {
+@HiltViewModel
+class WorkerViewModel @Inject constructor(
+    private val getWorkersUseCase: GetWorkersUseCase
+) : ViewModel() {
 
     private val _workers = MutableLiveData<List<Worker>>(listOf())
     val workers: LiveData<List<Worker>> get() = _workers
@@ -20,7 +25,6 @@ class WorkerViewModel : ViewModel() {
 
     var filteredWorkers = MutableLiveData<List<Worker>>()
     var filter = MutableLiveData<Filter>().apply { value = Filter.NONE }
-
 
     private var _currentGender = MutableLiveData<String>()
     val currentGender2: LiveData<String>
@@ -44,12 +48,11 @@ class WorkerViewModel : ViewModel() {
         isLoading.value = true
         viewModelScope.launch {
             val currentWorkers = _workers.value
-            val newData = ApiClient.instance.getData().getOrDefault(listOf())
+            val newData: List<Worker> = getWorkersUseCase()
 
             _workers.value = currentWorkers?.plus(newData)
 
             filterWorkersBy()
-
             isLoading.value = false
         }
     }

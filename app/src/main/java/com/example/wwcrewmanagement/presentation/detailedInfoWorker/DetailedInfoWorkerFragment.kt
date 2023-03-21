@@ -1,7 +1,6 @@
-package com.example.wwcrewmanagement.detailedInfoWorker
+package com.example.wwcrewmanagement.presentation.detailedInfoWorker
 
 import android.os.Bundle
-import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,9 +26,6 @@ class DetailedInfoWorkerFragment : Fragment() {
         super.onCreate(savedInstanceState)
         worker = args.worker
         viewModel = ViewModelProvider(this)[DetailedInfoViewModel::class.java]
-        sharedElementEnterTransition =
-            TransitionInflater.from(context).inflateTransition(android.R.transition.move)
-
     }
 
     override fun onCreateView(
@@ -75,7 +71,7 @@ class DetailedInfoWorkerFragment : Fragment() {
             ContextCompat.getDrawable(it, R.drawable.ic_song)?.let { binding.songTv.setImage(it) }
         }
 
-        binding.nameTextView.text = worker.name
+        // binding.nameTextView.text = worker.name
         binding.professionTextView.text = worker.profession
         binding.fullnameTv.setText("${worker.name} ${worker.surname}")
         binding.ageTv.setText(worker.age.toString())
@@ -83,11 +79,13 @@ class DetailedInfoWorkerFragment : Fragment() {
         binding.heightTextView.setText("${worker.height.toString()} cm")
         binding.emailTextView.setText(worker.email)
         binding.countryTextView.setText(worker.country)
+        /*
         binding.colorTv.setText(worker.favorite.color)
         binding.foodTv.setText(worker.favorite.food)
         binding.randomTv.setText(worker.favorite.randomString)
         binding.songTv.setText(worker.favorite.song)
 
+         */
 
     }
 }

@@ -1,4 +1,4 @@
-package com.example.wwcrewmanagement.workerList
+package com.example.wwcrewmanagement.presentation.workerList
 
 import android.os.Bundle
 import android.view.*
@@ -18,9 +18,6 @@ import com.example.wwcrewmanagement.model.Worker
 
 
 class WorkerListFragment : Fragment() {
-    companion object {
-        fun newInstance() = WorkerListFragment()
-    }
 
     private lateinit var binding: WorkerListFragmentBinding
     private lateinit var viewModel: WorkerViewModel

@@ -6,7 +6,7 @@
 
         <variable
             name="workerViewModel"
-            type="com.example.wwcrewmanagement.workerList.WorkerViewModel" />
+            type="com.example.wwcrewmanagement.presentation.workerList.WorkerViewModel" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -29,7 +29,6 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:animateLayoutChanges="true"
-                android:transitionName="@string/transition_image"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView

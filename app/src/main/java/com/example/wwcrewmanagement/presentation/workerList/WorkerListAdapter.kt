@@ -1,4 +1,4 @@
-package com.example.wwcrewmanagement.workerList
+package com.example.wwcrewmanagement.presentation.workerList
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

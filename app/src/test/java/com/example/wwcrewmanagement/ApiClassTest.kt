@@ -1,6 +1,6 @@
 package com.example.wwcrewmanagement
 
-import com.example.wwcrewmanagement.network.ApiClient
+import com.example.wwcrewmanagement.data.network.ApiClient
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertTrue
 import org.junit.Test

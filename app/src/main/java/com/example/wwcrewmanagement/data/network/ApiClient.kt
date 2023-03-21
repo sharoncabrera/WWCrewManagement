@@ -1,7 +1,7 @@
-package com.example.wwcrewmanagement.network
+package com.example.wwcrewmanagement.data.network
 
 import com.example.wwcrewmanagement.model.ApiResponse
-import com.example.wwcrewmanagement.model.Worker
+import com.example.wwcrewmanagement.model.WorkerResponse
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.engine.cio.*
@@ -13,10 +13,6 @@ import kotlinx.serialization.json.Json
 
 
 class ApiClient {
-    companion object {
-        lateinit var instance: ApiClient
-    }
-
     var page = 1
     var numberTotalofPages = 1
 
@@ -27,8 +23,7 @@ class ApiClient {
         }
     }
 
-
-    suspend fun getData(): Result<List<Worker>> {
+    suspend fun getData(): Result<List<WorkerResponse>> {
 
         if (page > numberTotalofPages) {
             return Result.success(listOf())

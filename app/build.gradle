@@ -6,6 +6,8 @@ plugins {
     id 'kotlinx-serialization'
     id 'org.jetbrains.kotlin.kapt'
     id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 
 }
 
@@ -76,5 +78,11 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
     implementation("androidx.navigation:navigation-dynamic-features-fragment:$nav_version")
+
+    //di
+    implementation 'com.google.dagger:hilt-android:2.45'
+    kapt 'com.google.dagger:hilt-compiler:2.45'
+    implementation "androidx.hilt:hilt-navigation-compose:1.0.0"
+    kapt "androidx.hilt:hilt-compiler:1.0.0"
 }
 

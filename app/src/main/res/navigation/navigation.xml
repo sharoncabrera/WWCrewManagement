@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/workerListFragment"
-        android:name="com.example.wwcrewmanagement.workerList.WorkerListFragment"
+        android:name="com.example.wwcrewmanagement.presentation.workerList.WorkerListFragment"
         tools:layout="@layout/worker_list_fragment">
         <action
             android:id="@+id/action_workerListFragment_to_workerDetailsFragment"
@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/workerDetailsFragment"
-        android:name="com.example.wwcrewmanagement.detailedInfoWorker.DetailedInfoWorkerFragment"
+        android:name="com.example.wwcrewmanagement.presentation.detailedInfoWorker.DetailedInfoWorkerFragment"
         tools:layout="@layout/detailed_info_worker_fragment">
 
         <argument
