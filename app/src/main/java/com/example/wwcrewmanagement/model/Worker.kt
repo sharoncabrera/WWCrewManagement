@@ -11,5 +11,4 @@ data class Worker(
     val age: Int = 0,
     var country: String = "",
     var height: Int = 0,
-    //var favorite: Favorite
 )

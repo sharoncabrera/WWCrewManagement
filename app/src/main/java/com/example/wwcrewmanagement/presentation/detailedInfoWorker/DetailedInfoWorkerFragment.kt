@@ -8,24 +8,23 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.wwcrewmanagement.R
 import com.example.wwcrewmanagement.databinding.DetailedInfoWorkerFragmentBinding
 import com.example.wwcrewmanagement.model.Worker
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class DetailedInfoWorkerFragment : Fragment() {
 
     private lateinit var binding: DetailedInfoWorkerFragmentBinding
     private lateinit var viewModel: DetailedInfoViewModel
-    private lateinit var worker: Worker
-    val args: DetailedInfoWorkerFragmentArgs by navArgs()
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val id = args.workerId
-        worker = Worker(id = id) //TODO: implementar Room o cache
         viewModel = ViewModelProvider(this)[DetailedInfoViewModel::class.java]
     }
 
@@ -44,11 +43,18 @@ class DetailedInfoWorkerFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupData()
-        viewModel.setWorker(worker)
+
+        lifecycleScope.launch {
+            viewModel.workerFlow.collect {
+                it?.let {
+                    setupData(it)
+                }
+            }
+        }
     }
 
-    private fun setupData() {
+    private fun setupData(worker: Worker) {
+
         Glide.with(this)
             .load(worker.image)
             .into(binding.workerImage)
@@ -80,6 +86,7 @@ class DetailedInfoWorkerFragment : Fragment() {
         binding.heightTextView.setText("${worker.height.toString()} cm")
         binding.emailTextView.setText(worker.email)
         binding.countryTextView.setText(worker.country)
+
         /*
         binding.colorTv.setText(worker.favorite.color)
         binding.foodTv.setText(worker.favorite.food)
